@@ -44,11 +44,14 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompGiveHediffsPsycasts.cs" />
     <Compile Include="CompGiveThingsPsycasts.cs" />
+    <Compile Include="CompProperties_GiveHediffsPsycasts.cs" />
     <Compile Include="CompProperties_GiveThingsPsycasts.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RimWorld_Apparel_GetWornGizmos.cs" />
+    <Compile Include="RimWorld_Pawn_ApparelTracker_GetGizmos.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

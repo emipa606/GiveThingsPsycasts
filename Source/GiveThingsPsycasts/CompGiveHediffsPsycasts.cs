@@ -4,37 +4,29 @@ using Verse;
 
 namespace GiveThingsPsycasts
 {
-    public class CompGiveThingsPsycasts : ThingComp
+    public class CompGiveHediffsPsycasts : HediffComp
     {
         private AbilityDef definedPsycastDef;
+        private bool VerifyAbilityDef = true;
 
-        private CompProperties_GiveThingsPsycasts Props => (CompProperties_GiveThingsPsycasts) props;
+        private CompProperties_GiveHediffsPsycasts Props => (CompProperties_GiveHediffsPsycasts) props;
 
-        private Pawn GetWearer
-        {
-            get
-            {
-                if (ParentHolder is Pawn_ApparelTracker)
-                {
-                    return (Pawn) ParentHolder.ParentHolder;
-                }
-
-                if (ParentHolder is Pawn_EquipmentTracker)
-                {
-                    return (Pawn) ParentHolder.ParentHolder;
-                }
-
-                return null;
-            }
-        }
+        private Pawn GetWearer => parent.pawn;
 
         private bool IsWorn => GetWearer != null;
 
-        public override void Initialize(CompProperties props)
+        public override void CompPostTick(ref float severityAdjustment)
         {
-            base.Initialize(props);
+            base.CompPostTick(ref severityAdjustment);
+            if (!VerifyAbilityDef)
+            {
+                return;
+            }
+
             definedPsycastDef = Main.verifyPsycastDef(Props.PsycastDefName);
+            VerifyAbilityDef = false;
         }
+
 
         public IEnumerable<Gizmo> CompGetGizmosWorn()
         {
