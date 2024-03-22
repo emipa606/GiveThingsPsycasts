@@ -50,6 +50,6 @@ public class CompGiveHediffsPsycasts : HediffComp
         Main.resetPsycastLevel(owner);
 
         var ability = new Psycast(owner, definedPsycastDef);
-        yield return new Command_Psycast(ability);
+        yield return new Command_Psycast(ability, owner);
     }
 }
