@@ -23,7 +23,7 @@ public class CompGiveHediffsPsycasts : HediffComp
             return;
         }
 
-        definedPsycastDef = Main.verifyPsycastDef(Props.PsycastDefName);
+        definedPsycastDef = Main.VerifyPsycastDef(Props.PsycastDefName);
         VerifyAbilityDef = false;
     }
 
@@ -42,12 +42,12 @@ public class CompGiveHediffsPsycasts : HediffComp
 
         var owner = GetWearer;
 
-        if (!Main.shouldShowGizmo(owner))
+        if (!Main.ShouldShowGizmo(owner))
         {
             yield break;
         }
 
-        Main.resetPsycastLevel(owner);
+        Main.ResetPsycastLevel(owner);
 
         var ability = new Psycast(owner, definedPsycastDef);
         yield return new Command_Psycast(ability, owner);

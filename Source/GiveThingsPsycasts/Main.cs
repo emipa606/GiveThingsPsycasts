@@ -14,7 +14,7 @@ public static class Main
         harmony.PatchAll(Assembly.GetExecutingAssembly());
     }
 
-    public static void resetPsycastLevel(Pawn pawn)
+    public static void ResetPsycastLevel(Pawn pawn)
     {
         pawn.psychicEntropy ??= new Pawn_PsychicEntropyTracker(pawn);
         if (pawn.psychicEntropy.CurrentPsyfocus < 0)
@@ -23,12 +23,12 @@ public static class Main
         }
     }
 
-    public static bool shouldShowGizmo(Pawn pawn)
+    public static bool ShouldShowGizmo(Pawn pawn)
     {
         return Find.Selector.SelectedObjects.Contains(pawn) && pawn.IsColonistPlayerControlled;
     }
 
-    public static AbilityDef verifyPsycastDef(string defName)
+    public static AbilityDef VerifyPsycastDef(string defName)
     {
         if (string.IsNullOrEmpty(defName))
         {

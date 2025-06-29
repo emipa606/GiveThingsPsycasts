@@ -5,8 +5,8 @@ using Verse;
 
 namespace GiveThingsPsycasts;
 
-[HarmonyPatch(typeof(Pawn_ApparelTracker), "GetGizmos")]
-public static class RimWorld_Pawn_ApparelTracker_GetGizmos
+[HarmonyPatch(typeof(Pawn_ApparelTracker), nameof(Pawn_ApparelTracker.GetGizmos))]
+public static class Pawn_ApparelTracker_GetGizmos
 {
     [HarmonyPostfix]
     public static void ApparelGizmosFromComps(Pawn_ApparelTracker __instance, ref IEnumerable<Gizmo> __result)

@@ -14,12 +14,7 @@ public class CompGiveThingsPsycasts : ThingComp
     {
         get
         {
-            if (ParentHolder is Pawn_ApparelTracker)
-            {
-                return (Pawn)ParentHolder.ParentHolder;
-            }
-
-            if (ParentHolder is Pawn_EquipmentTracker)
+            if (ParentHolder is Pawn_ApparelTracker or Pawn_EquipmentTracker)
             {
                 return (Pawn)ParentHolder.ParentHolder;
             }
@@ -33,7 +28,7 @@ public class CompGiveThingsPsycasts : ThingComp
     public override void Initialize(CompProperties props)
     {
         base.Initialize(props);
-        definedPsycastDef = Main.verifyPsycastDef(Props.PsycastDefName);
+        definedPsycastDef = Main.VerifyPsycastDef(Props.PsycastDefName);
     }
 
     public IEnumerable<Gizmo> CompGetGizmosWorn()
@@ -50,12 +45,12 @@ public class CompGiveThingsPsycasts : ThingComp
 
         var owner = GetWearer;
 
-        if (!Main.shouldShowGizmo(owner))
+        if (!Main.ShouldShowGizmo(owner))
         {
             yield break;
         }
 
-        Main.resetPsycastLevel(owner);
+        Main.ResetPsycastLevel(owner);
 
         var ability = new Psycast(owner, definedPsycastDef);
         yield return new Command_Psycast(ability, owner);
