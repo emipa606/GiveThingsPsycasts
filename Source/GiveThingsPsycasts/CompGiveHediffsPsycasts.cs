@@ -6,8 +6,8 @@ namespace GiveThingsPsycasts;
 
 public class CompGiveHediffsPsycasts : HediffComp
 {
-    private AbilityDef definedPsycastDef;
     private bool VerifyAbilityDef = true;
+    private AbilityDef definedPsycastDef;
 
     private CompProperties_GiveHediffsPsycasts Props => (CompProperties_GiveHediffsPsycasts)props;
 

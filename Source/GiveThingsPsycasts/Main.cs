@@ -10,8 +10,7 @@ public static class Main
 {
     static Main()
     {
-        var harmony = new Harmony("Mlie.GiveThingsPsycasts");
-        harmony.PatchAll(Assembly.GetExecutingAssembly());
+        new Harmony("Mlie.GiveThingsPsycasts").PatchAll(Assembly.GetExecutingAssembly());
     }
 
     public static void ResetPsycastLevel(Pawn pawn)
